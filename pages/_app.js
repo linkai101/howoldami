@@ -9,6 +9,10 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>how old am i?</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="An app that visualizes your age compared to the US average life expectancy."
+        />
       </Head>
       
       <ChakraProvider theme={theme} resetCSS>
