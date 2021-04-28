@@ -45,7 +45,8 @@ export default function DatePage({ params }) {
     let now = new Date();
     const msAlive = Math.abs(now - birthDate);
     const daysAlive = Math.ceil(msAlive / (1000 * 60 * 60 * 24));
-    return Math.round(daysAlive/7);
+    const weeksAlive = Math.round(daysAlive/7);
+    return (weeksAlive > 4212) ? 4212 : weeksAlive;
   }
 
   if (typeof birthDate === 'undefined')
@@ -102,9 +103,15 @@ export default function DatePage({ params }) {
           )}
         </SimpleGrid>
 
-        <Heading size="md" mt={2} fontWeight="normal" mt={8}>
-          so basically, you're getting old.
-        </Heading>
+        {calcWeeksAlive() >= 4212 ? 
+          <Heading size="md" mt={2} fontWeight="normal" mt={8}>
+            so basically, you're dead.
+          </Heading>
+        : 
+          <Heading size="md" mt={2} fontWeight="normal" mt={8}>
+            so basically, you're getting old.
+          </Heading>
+        }
       </Container>
     </>
   );
